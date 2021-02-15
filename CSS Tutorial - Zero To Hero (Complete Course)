@@ -1,3 +1,10 @@
+Name: "CSS Tutorial - Zero To Hero (Complete Course)"
+Author: Uploaded to FreeCodeCamp youtube, originally authored by Jad Khalili of VideoLab
+Resources: 
+	https://www.youtube.com/watch?v=1Rs2ND1ryYc
+	https://github.com/Video-Lab/css-course-content
+
+
 To a link a stylesheet to our html file we do this:
 	<link rel="stylesheet" type="text/css" href="CSS_FILE_NAME.css">
 
