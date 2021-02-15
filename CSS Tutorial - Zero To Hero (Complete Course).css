@@ -538,3 +538,59 @@ Using Transitions in CSS
 					-moz-transition: background 300ms ease;	<---- The "webkit" prefix is used for Mozilla
 					-o-transition: background 300ms ease;	<---- The "webkit" prefix is used for Opera
 				}
+	There are also translation functions in CSS.
+		We can use the translation functions in CSS to move,scale,or rotate an element.
+			ex:
+				.submit-button:hover{
+					transform: translate(50px, 30px);	<---- Moves the element 50px to the right and 30px down when hovered on.
+					transform: scale(2.5);	<---- Scales the element up 2.5x.
+					transform: rotate(-45deg);	<---- Moves element 45 degrees
+					transform: skewX(45deg);	<---- Skews the element on the X axis 45 degrees.
+					transform: skewY(45deg);	<---- Skews the element on the Y axis 45 degrees.
+					transform: matrix(1, -0.3, 0, 1, 0, 0)	<---- Performs all the translations with a single property. Format can be fund here: https://www.w3schools.com/css/css3_2dtransforms.asp
+				}
+		These translation functions are new to CSS so it might be wise to specify browser support to them.
+
+Using Animations in CSS
+	Animations in CSS are similar to transitions, but are able to be applied to properties in different elements while transitions would have to be defined multiple times for that to work.
+		Animations can also be played without the need of a psuedo selector unlike transitions.
+	We can create an animation in CSS by using keyframes. We natively have a start and end keyframe but we can also make our own keyframes.
+		ex:
+			@keyframes translate-element{	<---- This will make a animation called "translate-element"
+				from {	<---- The "from" keyframe is the starting keyframe in the animation
+					background: blue;
+					color: red;
+				}
+
+				to{	<---- The "to" keyframe is the ending keyframe in the animation
+					background: green;
+					color: blue;
+				}
+			}
+		We can also use percentages as keyframes.
+			ex:
+				@keyframes percentage-example{
+					0% {background: blue;}
+					50% {background: red; transform: translate(20px, 20px);}
+					100% {background: yellow;}
+				}
+	We can then use an animation in our element in CSS by adding animation properties to it.
+		ex:
+			#about-us{
+				animation-name: percentage-example;	<---- We first specify the name of our animation
+				animation-duration: 2s; <---- Sets how long the animation runs. (The default value of this is 0 so it has to be set before anything will play.)
+				animation-timing-function: ease; <---- This property works similarly to a transition style property
+				animation-delay: 2s	<---- This delays the specified animation to play after the time has passed. (If it is set to something negative then it skips to that point in the animation meaning -2s = 2 seconds already in to the animation)
+				animation-iteration-count: 2;	<---- This applies how many times it runs. (It can be set to "infinite" to run infinitely)
+				animation-direction: normal;	<---- This sets the animation to run normally from start to finish
+				animation-direction: reverse;	<---- This sets the animation to run in reverse 
+				animation-direction: alternate;	<---- This sets the animation to run "alternately" meaning it goes normally and then when it finishes it goes in reverse back to the start.
+				animation-direction: alternate-reverse;	<---- Works same way as alternate except it starts at 100% and then goes to 0% and then goes back to 100%
+			}
+		We can also just write all of these properties shorthandly using the "animation" property. It follows the format: "animation: name duration timing-function delay iteration-count direction;"
+			ex:
+				#about-us{
+					animation: percentage-example 2s ease 1s 5 reverse	<---- This makes the "percentage-example" animation play 5 times in reverse with a delay of 1 second and duration of 2 second and its style is ease
+				}
+	By convention animation keyframes typically should only take up one line.
+		Also putting all of your animations at the bottom CSS file is good so then you can quickly find them.
