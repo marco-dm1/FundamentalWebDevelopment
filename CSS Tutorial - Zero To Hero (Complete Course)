@@ -1,0 +1,528 @@
+To a link a stylesheet to our html file we do this:
+	<link rel="stylesheet" type="text/css" href="CSS_FILE_NAME.css">
+
+We can make comments in CSS by using /* and */
+	ex:
+		/* test comment text */
+
+To get parts of our html and manipulate them we need to get the CSS Selector for it.
+	Each Selector has a different Specificity
+		Specificity is basically the Z-Index of Selectors and determines which selector overwrites the other if there are multiple on one element.
+	There are 4 main types of selectors and a few other advanced ones.
+		Element Selector
+			- This selector allows us to select every element of a specific type to change in our css. 
+			- This selector has the lowest specificity and can be overwritten by the two other selectors and inline styling
+				This selector is distinguishable by the element name and no "." or "#" before it.
+				
+					<p>My paragraph text and all the other paragraph elements' texts will be red</p>
+					
+					p {
+						color: red; (changes text color to red)
+					}
+				
+		Class Selector
+			- This selector allows us to select every element with a specific class name.
+			- This selector is meant to be used multiple times per convention.
+			- This selector has a medium level of specificity and can overwrite element selectors but also can be overwritten by id selectors and inline styling.
+				This selector is distinguishable by the "." before the class name in the css file.
+				
+					<h1 class="myclass">My Red Header Text!</h1>
+					
+					.myclass{
+						color: red;
+					}
+					
+		ID Selector
+			- This selector allows us to select every element with a specific ID name.
+			- This selector is meant to be used only for one element per convention even though it can be used multiple times.
+			- This selector has a higher specificity and can overwrite class and element selectors but can also be overwritten by inline styling.
+				ID Selectors are different from Class Selectors because they can only be used on one element at a time.
+				This selector is distinguishable by the "#" before the ID name in the css file.
+				
+					<h1 id="myid">My Red Header Text!</h1>
+					
+					#myid{
+						color: red;
+					}
+		
+		Psuedo Selector
+			- This selector is an addon to the other selectors and is meant to provide extra functionality to a selected element.
+				This selector is distinguishable by one of the 3 other selectors and then a ":" and the name of the psuedo selector.
+					
+					<h1 class="titles">My Article Title<h1/>
+					
+					.titles:hover{
+						color: blue; (changes the text color to blue when the mouse is hovered over a titles element)
+					}
+				A list of the psuedo elements and psuedo classes can be found here:
+					https://www.w3schools.com/css/css_pseudo_elements.asp
+		Adjacent Sibling Selector
+			- This selector allows us to find elements that are adjacent to specific siblings.
+				
+				<h2>my header2</h2>
+				<a>test</a>
+				
+				h2 + a{ (This finds every a element that follows a h2 element)
+					color: blue;
+				}
+		General Sibling Selector
+			- This selector allows is just like Adjacent Sibling Selector but requires the element to be in the same parent.
+			
+				<div>
+					<h2>my header2</h2>
+					<a>test</a>
+				</div>
+				
+				h2 ~ a{
+					color: blue;
+				}
+				
+		Child Selector
+			- This selector allows us to find every element of a specific type in a specific element.
+				
+				<div>
+					<h1>test</h1>
+					<h1>test2</h1>
+					<h2>im not blue!</h2>
+				</div>
+				
+				div > h1{
+					color: blue;
+				}
+				
+		Descendant Selector
+			- This selector allows us to find every element with a specific type in a specific element and its descendants
+				<div>
+					<h1>test</h1>
+					<h1>test2</h1>
+					<h2>im not blue!</h2>
+				</div>
+				
+				div h1{
+					color: blue;
+				}
+				
+		Attribute Selector
+			- This selector allows us to find every element with a specific html attribute (aka src, href, class)
+				The basic format of the css is "element_type[attribute="value"]"
+			
+					<div class="selected">
+						<a>test</a>
+					</div>
+					<img src="image.png">
+					
+					div[class=selected]{
+						color: blue;
+					}
+					
+					img[src="image.png"]{
+						border: 10px solid black;
+					}
+					
+				There is also extra functionality for more indepth search of values.
+					element_type[attribute*="value"] <-- A * before the = checks if it contains whatever is in the value spot anywhere in the attribute's value.
+					element_type[attribute^="value"] <-- A ^ before the = checks if the attribute's value starts with whatever is in the value spot
+					element_type[attribute*="value"] <-- A $ before the = checks if the attribute's value ends with whatever is in the value spot.
+		Whitespace Selector
+			- This selector allows us to find every element with a selector seperated by whitespace.
+				
+				<div class="bolded italicized"></div>
+				
+				div[class~=italicized]{
+					color: blue;
+				}
+
+The CSS General Rule is the structure of CSS for an HTML Element.
+	Everything inside of the curly braces is considered the block
+	ex:
+		selector {
+			property: value; 
+		}
+
+We are able to select a very specific line of text in CSS by using the "span" tag.
+	ex:
+		<span class"mySpan">This is my first sentence</span> and this is my second sentence!
+
+		.mySpawn{
+			font-weight: 500;
+		}
+
+There are 3 different ways to use colors in CSS.
+	- Colors represented by Name
+		ex: "color: blue;"
+	- Colors represented through Hexadecimal values.
+		ex: "color: #ffffff;"
+			- There are 3 pairs of 2 digits that represent the Red, Green, and Blue for the color.
+	- Colors represented by a RGB value
+		ex: "color: rgb(0, 0, 255);"
+		- There is also an opacity version of rgb that uses "rgba()" to set the color and opacity.
+			ex: "color: rgba(0, 0, 255, 1)"   <--- RGB(0,0,255) with the opacity of 1
+	
+We can change text color in CSS by using "color"
+	selector{
+		color: blue;
+	}
+	
+We can set a background image using "background"
+	selector{
+		background: url("example.png");
+	}
+	- We can prevent the background image from repeating by using the "background-repeat" property
+		selector{
+			background: url("www.google.com/example.png")
+			background-repeat: no-repeat; 
+		}
+	- We can change the size of the background by using the "background-size" property
+		selector{
+			background: url("www.google.com/example.png")
+			background-size: 50px 50%;    <-- This makes the size 50px by 50%
+			background-size: cover;       <-- This makes the background image's size cover the entire background
+			background-size: contain;     <-- This makes the background image's size scale to fit the entire image in the background. (This can result into the image repeating if the background is not the same porportions of the background-image)
+	
+		}
+	
+We can set transparency/opacity to our selected elements by using "opacity" or "rgba"
+	selector{
+		background: rgba(0, 0, 255, 0.4)   <--- Functions as normal RGB function but has a 4th value that determines opacity, with this one having an opacity of 0.4
+		opacity: 0.5;  <--- This also changes the opacity to 0.4)
+	}
+	
+There are two types of gradients in CSS.
+	- Radial Gradient
+		- Circular gradient that moves from the center outwards. 
+		- To make a radial gradient we use the "radial-gradient()" function
+			ex: 
+				selector{
+					background: radial-gradient(red, blue);   <--- This make a circular gradient that starts as red in the center and turns into blue on the outside. This is not locked on two colors so we can add as many colors as we want in here.
+					background: radial-gradient(red 20%, blue 40%, green 55%);   <--- We can define how much % we want that color to take up by putting the % after the color. The percentages have to get progressively bigger from the left to the right or it wont work.
+					background: radial-gradient(circle, red, blue)   <--- We can make the oval gradient a true circular gradient by adding "circle" as the first parameter of the function.
+				}
+	- Linear Gradient
+		- Smoothly transitions from one color to the next.
+		- To make a Linear gradient we use the "linear-gradient()" function
+			- ex: 
+				selector{
+					background: linear-gradient(to right, red, blue)  <--- "to right" means the gradient is going right, and then the colors after are the ones used in gradient with the leftmost being the leftmost color in the gradient and the rightmost being the rightmost color in the gradient.
+					background: linear-gradient(to right, blue, green, yellow, red);    <--- We can also add as many colors as we want to our gradient.
+					background: linear-gradient(to top right, blue, red);   <--- We can also make it go in directions that are the combination of standard directions (top, left, right, bottom)
+					background: linear-gradient(to right, rgba(0, 0, 255, 0), rgba(0, 0, 255, 1));   <--- We can even add opacity to our colors to make the color fade in.
+					background: linear-gradient(90deg, red, blue);   <--- We can even make our gradient go to a specific degree. (0 degree is top so 90 would be right, 180 would be bottom, and -90 would be left)
+				}
+				
+There are different types of units in CSS
+	Absolutive Units
+		- These units are set to a fixed size.
+		- An example of this type of unit would be a pixel. (px's are a slight exception because some screens have more pixels per centimeter then other screens do.)
+			selector{
+				height: 50px;	<--- Sets to 50 pixels
+				height: 50cm;	<--- Sets to 50 centimeters
+				height: 50mm;   <--- Sets to 50 millimeters
+				height: 50pt;   <--- Sets to 50 points
+				height: 50pc;   <--- Sets to 50 pc's (1 pc = 12 pts)
+			}
+			
+	Relative Units
+		- These units conform to the situation.
+		- An example of this type of unit would be a %.
+			ex: 
+				selector{
+					height: 50%;	<--- Sets to 50 percent of the size of the element
+					font-size: 2em;	<--- Sets the font size to double what it was
+					width: 70vw;	<--- Sets to 70 * 1% of the total viewport's width
+					height: 70vh;	<--- Sets to 70 * 1% of the total viewport's height
+				}
+
+There are many ways to manipulate text in CSS.
+	We can use "text-decoration" to change how our text looks.
+		ex:
+			.link {	<---- Gets all links on the page.
+				text-decoration: none;	<---- Removes all text decoration. (This is important since some text has decoration by default, ex: links.)
+				text-decoration: underline;	<---- Adds a underline to text
+				text-decoration: line-through;	<---- Puts a line through the text
+				text-decoration: overline;	<---- Puts a line over the text
+			}
+	We can use "text-transform" to transform our text
+		ex:
+			body {
+				text-transform: capitalize;	<---- Makes first character of every word in the body uppercase
+				text-transform: uppercase;	<---- Makes every character in the body uppercase
+			}
+	We can also position our text a certain way using "text-align"
+		ex:
+			body {
+				text-align: justify;	<---- Aligns all text lines to same lenght to make them fill the page.
+				text-align: center;	<---- Aligns text in body to center
+				text-align: left;	<---- Aligns text in body to left
+				text-align: right;	<---- Aligns text in body to right
+			}
+	We can change font size in CSS by using "font-size"
+		ex:
+			body {
+				font-size: 1.25em;	<---- Changes font size to 1.25 times  the original size
+			}
+	We can incremently bold our text in CSS by using "font-weight"
+		ex:
+			body {
+				font-weight: 800;	<---- Changes text to look like a header (Specific fonts only support specific boldness)
+			}
+	We can change the style of our fonts in CSS by using "font-style"
+		ex:
+			body {
+				font-style: normal; 	<---- Removes font style.
+				font-style: italic;	<---- Changes text to italic
+				font-style: oblique;	<---- Changes text to italic but does it a bit more
+			}
+
+
+Using fonts and font families in CSS
+	Font family is a collection of fonts that have similar features.
+		The different typical families are:
+			- Serif
+				- Has small lines on end of letters and most academic and official papers use this font.
+			- Sans-Serif
+				- Same as serif but without lines that makes it easier to read on computers.
+				- This is the most common font used on the internet
+			- Monospaced
+				- This family has every letter spaced/sized evenly
+	We can specify fonts and font family in CSS by doing this:
+		ex:
+			body{
+				font-family: sans-serif;	<---- This changes the font family to sans-serif
+				font-family: "Times New Roman", serif;	<---- This makes us pick Times New Roman and if that font is not available then it falls back to the default serif font. (Fonts with spaces in them require for them to be put into quotation marks.)
+				font-family: "Arial", "Times New Roman", "Gotham", serif	<---- Tries to set to fonts and if one isn't available then it checks if the other is available and so on until it gets to default serif font at the end.
+
+
+			}
+
+Using external fonts in CSS
+	Most computers come preloaded with multiple fonts, but some computers don't or you might want to use a custom font
+		A good site to find fonts for commerical/non-commerical use on a site is "fonts.google.com"
+	We can try using our external font by doing this.
+		First include the necessary requirements html code to load the external font:
+			<head>
+				<link rel="preconnect" href="https://fonts.gstatic.com">
+				<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+			</head>
+
+		Then we use it in our css file:
+			body{
+				font-family: "Lobster", serif	<---- Make it default to our external "Lobster" font but have it fall back on the serif font if Lobster doesn't work.
+			}
+
+CSS Box Model Theory
+	- Every element in CSS is surrounded by an invisible box
+	- The Box Model is the most commonly used way to position items.
+	The box model looks like this: https://www.w3schools.com/css/css_boxmodel.asp
+		- Each layer represents a different part of the model.
+		- Each layer can be stretched and sized either symmetrically or asssymetrically.
+		The box model is made of the 3 layers.
+			- Padding (represents the space between the content and the border and is used for internal space)
+			- Border (divider between the padding and margin, can be visually changed through CSS)
+			- Margin (space that is moved around in relation to the other elements and is used for external space)
+	We can use this box model through the content size by doing this:
+		- Units: We typically will use an absolute unit/pixels for height (since the page can be scrolled) but for width we use a relative unit that scales with the web page.
+
+		ex:
+			<div class="image-content">
+				<img src="dog.png">
+			</div>
+
+			.image-content{
+				height: 300px;
+				width: 60%;
+			}
+
+Using Borders in CSS
+	The general structure of the border property in CSS is "size style color".
+	ex:
+		#image-content{
+			border: 2px solid rgb(204, 229, 225);	<---- This makes the size of the border "2px", style of the border "solid" and color of the border "rgb(204, 229, 225)"
+			border: 2px dotted rgb(204, 229, 225);	<---- Same as above except changes the border style to "dotted" which makes a dotted border line instead of a solid border line
+			border: 2px dashed rgb(204, 229, 225);	<---- Same as above except changes the border style to "dashed" which makes a dashed border line insteead of dotted one
+			border: 2px double rgb(204, 229, 225);	<---- Same as above except changes the border style to "double" which makes two small border lines.
+			
+		}
+
+Using Padding and Margin in CSS
+	We can use Padding in CSS to make a space between the content and the border.
+		ex:
+			#image-content{
+				border: 5px solid rgb(255, 0, 0);
+				padding: 20px;	<---- Adds 20px padding between images and border
+				padding-top: 25px;	<---- Adds 25px padding between the top of the image and the top border
+			}
+		We can also shorthand different sizes of padding by using the "padding: top right bottom left" value
+			ex:
+				#image-content{
+					padding: 50px 20px 5px 10px;	<---- Adds 50px padding on top, 20px padding on right, 5px padding on bottom, and 10px padding on left
+				}
+	For margins it is exact same except we use the "margin" property instead of the "padding property"
+		The margins will also only affect the element in relation to the space around it and will not affect/be affected by the content inside.
+		We can also shorthand the margin by doing this formula "margin: top/bottom left/right;"
+			ex:
+				#image-content{
+					margin: 50px 100px;	<---- Adds 50px margin on top and bottom of image and 100px on left and right of image
+				}
+
+Using Float and Display Types in CSS
+	All elements in CSS have a specific display type that determines the behavior of the elements.
+		Block is a display type that makes forces every other element around it move away from it.
+			ex:
+				<h1>test test test</h1>	<---- This would force the next line down because its a block element.
+				<p> this is a different block and is moved away from the other elements</p>
+		Inline is a dispaly type that has its behavior inline with the other elements
+			ex:
+				<p>This is the first sentence of my paragraph. <span> This is the second. </span> This is the third!</p>	<---- This would look the same if the span was there or not.
+		We can change the default display type by using the "default" property.
+			ex:
+				body{
+					display: none;	<---- This makes the body invisible.
+					display: inline;	<---- This makes it inline.
+					display: block; 	<---- This makes it block.
+					display: inline-block;	<---- This makes it a inline-block which is a hybrid of the two types.
+				}
+	In CSS we can use the "float" of an element to change the display type it is.
+		ex:
+			.img{
+				float: right;	<---- Moves it, and the rest of the content, to the right side of the page.
+			}
+
+Using Flexbox in CSS:
+	Flexbox stands for "flexible box" and is a way to layout a website.
+		- A entire website can be made into containerized into flexbox and we can avoid using padding while still nicely laying out the site.
+	Flexbox is a great display type that lets you arrange items easier without having to use displays, floats, and other layout properties
+	Flexbox is split into two main parts: the container and the items.
+		- The container is the parent element in which the display type is active. This is usally in the form of a div.
+		- Flex items are child elements of the container, and make up the contents of the box.
+	We can create a Flex container by setting the display type to "flex":
+		ex:
+			<div class="container">
+				<div class="container-box">Box 1</div>
+				<div class="container-box">Box 2</div>
+				<div class="container-box">Box 3</div>
+				<div class="container-box">Box 4</div>
+				<div class="container-box">Box 5</div>
+			</div>
+			.container{
+				background-color: red;
+				display: flex;	<---- This will make all the container boxes flex inside the container div.
+				flex-direction: column;	<---- This makes the boxes flex into a column.
+				flex-wrap: wrap;	<---- This makes the container boxes wrap around if they reach the end of the page.
+				justify-content: center;	<---- Moves the content in the container to the center
+				justify-content: flex-end; 	<---- Moves the content to the end of the flexbox.
+				justify-contnt: space-between:	<---- Makes equal spacing between all of the boxes in the container.
+				align-items: center;	<---- Aligns all the boxes to the center
+				align-items: flex-start;	<---- Aligns all the boxes to the top
+				align-items: baseline;	<---- Aligns all the boxes to the same base line regardless of their size.
+				align-self: flex-start;	<---- This is property overwrites align-items and is used for aligning of individual items
+			}
+			.container-box{
+				background-color: rgb(0, 255, 0);
+				width: 70px;
+				line-height: 50px;
+				margin: 10px;
+			}
+	We can change the order of items in a flexbox by using the "order" property.
+		Elements are ordered by 1 being the first and infinity being the last.
+		ex:
+			<div class="container">
+				<div class="container-box" style="order: 5;">Box 1</div>
+				<div class="container-box" style="order: 4;">Box 2</div>
+				<div class="container-box" style="order: 1;">Box 3</div>
+				<div class="container-box" style="order: 3;">Box 4</div>
+				<div class="container-box" style="order: 2;">Box 5</div>
+			</div>
+			.container{
+				background-color: red;
+				display: flex;
+			}
+			.container-box{
+				background-color: rgb(0, 255, 0);
+				width: 70px;
+				line-height: 50px;
+				margin: 10px;
+			}
+
+Using Flex Shrink, Grow, and Basis
+	We can use flex-grow to scale all the content in a flex container in a specific manner. (Every element requires the property or it doesn't work.)
+		ex:
+			<div class="container">
+				<div class="container-box" style="flex-grow: 1;">Box 1</div>
+				<div class="container-box" style="flex-grow: 1;">Box 2</div>
+				<div class="container-box" style="flex-grow: 1;">Box 3</div>
+				<div class="container-box" style="flex-grow: 5;">Box 4</div>	<---- This takes 5 * the amount of space as the others
+				<div class="container-box" style="flex-grow: 1;">Box 5</div>
+			</div>
+			.container{
+				background-color: red;
+				display: flex;
+			}
+			.container-box{
+				background-color: rgb(0, 255, 0);
+				width: 70px;
+				line-height: 50px;
+				margin: 10px;
+			}
+	We can use flex-shrink to determine how much flex box content can shrink. We can also disable shrinking of the content by setting flex-shrink to 0.
+	We can use flex-basis to define the inital size of the flex box content.
+	We can use a shorthand property "flex" to set the grow shrink and basis.
+		The format of the property is "flex: grow shrink basis"
+		ex:
+			.container-box{
+				flex: 5 1 100px;	<---- This would make it take 5 * the normal space (because of the flex-grow), would limit the shrinking to 1 (because of the flex-shrink), and would set the inital size to 100px (because of the flex-basis)
+			}
+
+Using Grid in CSS
+	Grid is similar to Flex box but it is a display type that can be used to activate certain layout features on a container element.
+		- The Grid system is more manually controlled and focuses on width and height unlike flex box.
+	We can use grid by setting our display propert to "grid"
+		ex:
+			.grid-container{
+				display: grid;
+			}
+	The grid system is based on a column/row system and we can set these properties by using specific properties.
+		ex:
+			.grid-container{
+				display: grid;
+				grid-template-columns: 10px 50px 10px;	<---- Each number is the size of the column so the 1st would be 10px, 2nd would be 50px, and 3rd would be 10px.
+				grid-template-columns: auto auto auto; 	<---- This works the same way as the one above except it automatically sizes the 3 columns.
+				grid-template-rows: auto auto auto; 	<---- This works the same way as the one below except it automatically sizes the 3 rows.
+				grid-template-rows: 10px 50px 10px;	<---- Each number is the size of the row so the 1st would be 10px, 2nd would be 50px, and 3rd would be 10px.
+				justify-content: end;	<---- Sets all the content of the grid container to the right side (end)
+				justify-content: start;	<---- Sets all the content of the grid container to the left side (start)
+				justify-content: center;	<---- Sets all the content of the grid container to the center (center)
+				justify-content: space-evenly;	<---- Sets all the content of the grid container to be spaced evenly.
+				justify-content: spaced-around;	<---- Sets all the content of the grid container to be spaced around.
+				align-content: space-between;	<---- This aligns the content of the grid container accordingly.
+				align-content: space-evenly;	<---- This aligns the content of the grid container accordingly.
+				align-content: space-around;	<---- This aligns the content of the grid container accordingly.
+				grid-row-gap: 300px;	<---- Sets 300px gap for row
+				grid-row-column: 150px; <---- Sets 150px gap for column
+				grid-gap: 150px 300px;	<---- This is a shorthand version that sets column gap to 150px and row gap to 300px
+				grid-area: 2 / 1 / span 2 / span 3/
+			}
+	We can also specify column and row lines for specific elements in CSS:
+		The "grid-column" and "grid-row" properties adopt the format of "START_LINE / END_LINE" (ex: grid-row: 1 / 3; = start at column 1 and end at column 3)
+		ex:
+			<div class="container">
+				<div class="container-box" style="grid-column: 1 / 3;">Box 1</div>
+				<div class="container-box" style="flex-grow: 1;">Box 2</div>
+			</div>
+
+Using Transitions in CSS
+	Transitions help make elements translate nicely into other things in CSS
+	We use the "transition" property to do this in CSS. The format of the property is (transition: property duration style delay;)
+		ex:
+			.submit-button{
+				transition: background 300ms ease;	<---- Adds a ease transition to the background color property with a 300ms duration and no delay and it happens whenever that property is changed.
+				transition: all 1s ease 1s;	<---- Adds a ease transition for every property change with a 1 second duration and 1 second delay.
+				transition: background, padding 1s ease 1s;	<---- Adds a ease transition for backgrond and padding property changes with a 1 second duration and 1 second delay.
+			}
+	Only some new browsers like Chrome, Firefox, and Opera support the new CSS standards. Some browsers like Internet Explorer might not support them.
+		That is why we might want to specify what browser a specific property is used for. We can simply do this by adding a browser support prefix to the front of the property
+			ex:
+				.submit-button{
+					-webkit-transition: background 300ms ease;	<---- The "webkit" prefix is used for Chrome and Safari
+					-moz-transition: background 300ms ease;	<---- The "webkit" prefix is used for Mozilla
+					-o-transition: background 300ms ease;	<---- The "webkit" prefix is used for Opera
+				}
