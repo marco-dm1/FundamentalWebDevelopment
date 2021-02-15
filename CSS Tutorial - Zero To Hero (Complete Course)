@@ -3,7 +3,12 @@ Author: Uploaded to FreeCodeCamp youtube, originally authored by Jad Khalili of 
 Resources: 
 	https://www.youtube.com/watch?v=1Rs2ND1ryYc
 	https://github.com/Video-Lab/css-course-content
-
+Extra Notes:
+	I played most of the course at 2x speed, but some parts I played at 1.5x speed and rewinded for extra clarification. The entire course itself took around 8 hours
+	before I felt comfortable with the material, but probably could have been done quicker. I felt that some of the topics were partially over explained and could have
+	been more concise. Some of the note formatting in this follows the "conciseness" that I originally wanted in the course therefore a few of the episodes/lessons were
+	conjoined into single areas in these notes.
+----------
 
 To a link a stylesheet to our html file we do this:
 	<link rel="stylesheet" type="text/css" href="CSS_FILE_NAME.css">
