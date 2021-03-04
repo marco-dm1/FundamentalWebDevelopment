@@ -3,7 +3,7 @@ Author: Caleb Curry
 Resources: 
 	https://www.youtube.com/watch?v=9M4XKi25I2M
 Extra Notes:
-	I played the video on 1.5-2x to get through the content faster and had no problem. I also skipped note taking on some very simple things at the start.
+	I played the video on 2-2.5x normal speed to finish it faster. I felt that a lot time in the tutorial was spent on explaining programming fundamentals topics and not JavaScript itself which definitely made the video unnecessarily long so I did skip a decent bit of notes and even full lessons. I found that the series was more about just general JavaScript as the last hour went into explaining how HTML and CSS works and also some basic editing of it with JS. Another tutorial is definitely needed if you want to learn how to manipulate websites with JS.
 ----------
 
 JavaScript is a language used for web and mobile development.
