@@ -756,7 +756,7 @@ Object Oriented Programming in JavaScript
 
                             var bob = new Person("Bob");
                         }
-            - We can also set the prototype of one Object to the prototype of another
+            - We also should use Prototype Properties when we have very similar things but need slight differences and we can do this by setting the prototype of one Object to another
                 ex:
                     {
                         let user = {
@@ -787,3 +787,58 @@ Object Oriented Programming in JavaScript
                             console.log(teacher.active);    <---- Outputs false because teacher's active is false
                             console.log(user.active);   <---- Outputs true because the user's active was never changed
                         }
+            - Polymorphism in JavaScript
+                Polymorphism allows us to treat multiple things as one type
+
+We can check if an Object exists inside of a property in JavaScript by comparing the property to undefined
+    ex:
+        {
+            function A(){
+
+            }
+
+            if(A.Name === undefined){
+                console.log("Doesn't exist!");
+            }
+        }
+
+We can edit the CSS in our web page by referencing an element's style property
+    ex:
+        {
+            myElement = document.getElementById("testId");
+            myElement.style.color = rgb(255, 255, 255);
+        }
+
+Document Object Model (DOM)
+    - The DOM refers to the nodes of a web page
+        The nodes of the web page make up all of the elements
+            - We can get the first child node by using "childNotes"
+                ex:
+                    {
+                        console.log(document.childNodes[0]);
+                    }
+            - We can also get the parent element of an element using parentElement
+                ex:
+                    {
+                        console.log(myElement.parentElement);
+                    }
+            - All nodes also have siblings so we can use previousSibling and nextSibling to get those
+                ex:
+                    {
+                        console.log(myElement.nextSibling);
+                        console.log(myElement.previousSibling);
+                    }
+        There are two main types of nodes Element nodes and Text nodes
+            - Element nodes refer to nodes that are HTML elements
+                Element nodes can have other elements nodes in it like <b> and <i> elements inside of a <p> element
+            - Text nodes refer to text in an HTML element
+            - There are also other types of nodes but these are the two main ones
+            - All nodes also have a nodeType property with a numerical value that determines that node type
+                Some nodes can have their nodeType changed by changing the nodeValue property they have
+    We can get specific elements by their identifiers like classes, ids, and tags
+        ex:
+            {
+                myTaggedElement = document.getElementsByTagName("h1");
+                myClassedElement = document.getElementsByClassName("h1");
+                myIdedElement = document.getElementById("h1");
+            }
