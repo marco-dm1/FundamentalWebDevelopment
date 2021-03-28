@@ -5,3 +5,57 @@ Resources:
 Extra Notes:
 	N/A
 ----------
+
+Git is a version control system for tracking changes of repository files
+    - It is a decentralized version control system that lets multiple developers work on something at one time
+
+Using Git entails working on a local repository and then "pushing" (uploading) the repository to the remote server
+
+The basic commands are:
+    $ git init  <---- Creates a local git repository (creates .git folder that is hidden by default)
+    $ git add <files>  <---- Adds the specified file(s) to index (staging area)
+    $ git commit  <---- Commits everything from the index (staging area) into the local repository
+    $ git push  <---- Pushes (uploads) the local repository to the remote repository
+    $ git pull  <---- Pulls (downloads) the latest version of the remote repository
+    $ git clone  <---- Clones (downloads) a remote repository into the closest folder
+    $ git --version <---- Shows the version of git currently being used
+
+Before working on Git we need to set up our username and email that will differentiate who has commited to the repostiory.
+    - We can do this by setting up "git config":
+        $ git config --global user.name 'Example Username'
+        $ git config --global user.email 'Example Email'
+
+We can start working with git by using the command "git init"
+    - This command will create the hidden .git folder in the current path. This folder will act as our staging area on our local machine before we commit the changes to the remote repository
+
+We can then add files we have been working on by using the "git add" command
+    $ git add index.html    <---- This adds the index.html file in the current directory to the Index (staging area)
+    $ git add *.html    <---- Same as above but adds every html file in the current directory
+    $ git add . <---- Same as above but adds every single file in the currenty directory
+
+We can then see the status of our staging are aby using the "git status" command
+    $ git status    <---- This will display the "changes to be committed" (aka the files we have used git add on) and the "untracked files/changes not staged for commit" (aka the files that we haven't added to the staging area yet)
+
+If we want to remove files from the staging area we use the "git rm" command
+    $ git rm index.html <---- Removes the index.html file from the staging area
+
+We can commit our changes from staging area into the local repository by using the "git commit" command
+    $ git commit -m 'Inital commit'
+
+We can create a ".gitignore" file and fill it with file/folder names that we don't want to ever include in any add/commit/push
+
+We can create branches in git by using the command "git branch"
+    $ git branch myBranch
+
+We can switch to a different branch by using the "git checkout" command
+    $ git checkout myBranch <---- Makes us switch to the myBranch branch
+
+We can merge two branches together by using the "git merge" command
+    $ git merge otherBranch
+
+We can add remote repositories by using the "git remote add" command
+    $ git remote add myRemoteRepositoryExample https://github.com/example.git
+
+We can then view the remote repositories we have by using the "git remote" command
+    $ git remote
+
