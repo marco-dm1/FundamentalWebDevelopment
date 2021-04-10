@@ -40,7 +40,7 @@ If we want to remove files from the staging area we use the "git rm" command
     $ git rm index.html <---- Removes the index.html file from the staging area
 
 We can commit our changes from staging area into the local repository by using the "git commit" command
-    $ git commit -m 'Inital commit'
+    $ git commit -m "Inital commit"
 
 We can create a ".gitignore" file and fill it with file/folder names that we don't want to ever include in any add/commit/push
 
