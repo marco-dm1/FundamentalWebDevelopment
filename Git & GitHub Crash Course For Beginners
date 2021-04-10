@@ -53,7 +53,7 @@ We can switch to a different branch by using the "git checkout" command
 We can merge two branches together by using the "git merge" command
     $ git merge otherBranch
     
-We can rename the branch we are currently in by using the "git branch -m" while specifying the new name command
+We can rename the branch we are currently in by using "git branch -m" while specifying the new name
     $ git branch -m newName
     
 We can rename any branch by using "git branch -m" and specifying the old name and the new name
