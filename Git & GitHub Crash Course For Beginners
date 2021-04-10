@@ -67,3 +67,4 @@ We can add remote repositories by using the "git remote add" command
 We can then view the remote repositories we have by using the "git remote" command
     $ git remote
 
+Github credentials can be changed via the Credential Manager on Windows
