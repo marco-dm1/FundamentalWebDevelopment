@@ -46,7 +46,6 @@ We can create a ".gitignore" file and fill it with file/folder names that we don
 
 We can create branches in git by using the command "git branch"
     $ git branch myBranch
-    
 
 We can switch to a different branch by using the "git checkout" command
     $ git checkout myBranch <---- Makes us switch to the myBranch branch
