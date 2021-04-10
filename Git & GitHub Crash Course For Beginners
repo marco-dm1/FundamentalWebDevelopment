@@ -46,12 +46,19 @@ We can create a ".gitignore" file and fill it with file/folder names that we don
 
 We can create branches in git by using the command "git branch"
     $ git branch myBranch
+    
 
 We can switch to a different branch by using the "git checkout" command
     $ git checkout myBranch <---- Makes us switch to the myBranch branch
 
 We can merge two branches together by using the "git merge" command
     $ git merge otherBranch
+    
+We can rename the branch we are currently in by using the "git branch -m" while specifying the new name command
+    $ git branch -m newName
+    
+We can rename any branch by using "git branch -m" and specifying the old name and the new name
+    $ git branch -m oldBranchName newBranchName
 
 We can add remote repositories by using the "git remote add" command
     $ git remote add myRemoteRepositoryExample https://github.com/example.git
