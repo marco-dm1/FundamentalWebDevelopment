@@ -11,6 +11,8 @@ Git is a version control system for tracking changes of repository files
 
 Using Git entails working on a local repository and then "pushing" (uploading) the repository to the remote server
 
+The general workflow of git is: adding files to the staging area, commiting the staging area to the local repository, and then pushing the local repository to the remote repository
+
 The basic commands are:
     $ git init  <---- Creates a local git repository (creates .git folder that is hidden by default)
     $ git add <files>  <---- Adds the specified file(s) to index (staging area)
