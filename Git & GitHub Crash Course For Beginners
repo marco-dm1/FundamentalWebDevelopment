@@ -66,5 +66,10 @@ We can add remote repositories by using the "git remote add" command
 
 We can then view the remote repositories we have by using the "git remote" command
     $ git remote
+    
+We can use the git fetch command to bring updates from the remote repository into our local repository
+    $ git fetch
+    
+We can use the git pull command to bring updates from the remote repostiory into our local repostiory and then have those updates in our development
 
 Github credentials can be changed via the Credential Manager on Windows
