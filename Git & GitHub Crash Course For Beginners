@@ -62,7 +62,7 @@ We can rename any branch by using "git branch -m" and specifying the old name an
     $ git branch -m oldBranchName newBranchName
 
 We can add remote repositories by using the "git remote add" command
-    $ git remote add myRemoteRepositoryExample https://github.com/example.git
+    $ git remote add myRemoteRepositoryExampleName https://github.com/example.git
 
 We can then view the remote repositories we have by using the "git remote" command
     $ git remote
@@ -70,6 +70,7 @@ We can then view the remote repositories we have by using the "git remote" comma
 We can use the git fetch command to bring updates from the remote repository into our local repository
     $ git fetch
     
-We can use the git pull command to bring updates from the remote repostiory into our local repostiory and then have those updates in our development
-
+We can use the git pull command to bring updates from the remote repostiory into our local repository
+    $ git pull myRemoteRepositoryExampleName myRemoteRepositoryBranchNameToPull
+    
 Github credentials can be changed via the Credential Manager on Windows
